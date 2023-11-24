@@ -85,3 +85,4 @@ if __name__ == '__main__':
     plt.subplot(131)
     plt.bar(blyat.keys(),values)
     plt.show()
+    
