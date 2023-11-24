@@ -1,4 +1,4 @@
-import matplotlib as plt
+import matplotlib.pyplot as plt
 import numpy as np
 import math
 
@@ -62,11 +62,26 @@ class NazvaniePotomPridumau():
             recovered_lst.append(math.floor(infected.size * self.recovery_rate))
             deaths_lst.append(math.floor(infected.size * self.death_rate))
 
-        return {'infected':infected_lst,'new_cases':new_cases_lst,'recovered':recovered_lst,'deaths':deaths_lst}
+        return {'infected':infected_lst,'registered_cases':new_cases_lst,'recovered':recovered_lst,'deaths':deaths_lst}
 
 if __name__ == '__main__':
 
     np.random.seed(0)
 
     suka = NazvaniePotomPridumau()
-    print(suka.get_folks_per_day(suka.simulation()['deaths']))
+    infected, new_cases, recovered, deaths = suka.simulation().values()
+
+    blyat = suka.simulation()
+    colours = {'infected':'y','registered_cases':'g','recovered':'b','deaths':'r'}
+    for i in blyat.keys():
+        plt.plot(blyat[i],colours[i])
+        plt.ylabel(f'Amount of {i} per day')
+        plt.xlabel('Days')
+        plt.show()
+
+    values = [suka.get_folks_per_day(i)['total'] for i in blyat.values()]
+
+    plt.figure(figsize=(16,9))
+    plt.subplot(131)
+    plt.bar(blyat.keys(),values)
+    plt.show()
