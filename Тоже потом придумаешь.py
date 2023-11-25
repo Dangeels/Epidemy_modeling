@@ -18,10 +18,8 @@ class NazvaniePotomPridumau():
         self.days_of_simulation = days_of_simulation
         self.coef_base = coef_base
         self.coef_quarantine = coef_quarantine
-        # death & recovery rate нужно удалить, так как бесполезны и нужно переписать код без ебатни с геттерами
         self.death_rate = death_rate
         self.recovery_rate = recovery_rate
-        #######
         self.day_quarantine = day_quarantine
         self.incubation_period = incubation_period
 
