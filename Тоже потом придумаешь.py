@@ -75,6 +75,7 @@ if __name__ == '__main__':
     blyat = suka.simulation()
     colours = {'infected':'y','registered_cases':'g','recovered':'b','deaths':'r'}
     for i in blyat.keys():
+        plt.figure(figsize=(10,10))
         plt.plot(blyat[i],colours[i])
         plt.ylabel(f'Amount of {i} per day')
         plt.xlabel('Days')
@@ -82,7 +83,8 @@ if __name__ == '__main__':
 
     values = [suka.get_folks_per_day(i)['total'] for i in blyat.values()]
 
-    plt.subplots(figsize=(10,10))
+    plt.subplots(figsize=(12,10))
     plt.barh(y=['infected','registered_cases','recovered','deaths'][::-1],width=values[::-1])
     plt.show()
+
 
