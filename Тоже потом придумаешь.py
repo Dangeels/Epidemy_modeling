@@ -81,7 +81,7 @@ if __name__ == '__main__':
         plt.show()
 
     values = [suka.get_folks_per_day(i)['total'] for i in blyat.values()]
-    #maybe?
+
     plt.subplots(figsize=(10,10))
     plt.barh(y=['infected','registered_cases','recovered','deaths'][::-1],width=values[::-1])
     plt.show()
