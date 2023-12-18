@@ -86,4 +86,3 @@ if __name__ == '__main__':
     plt.barh(y=['infected','registered_cases','recovered','deaths'][::-1],width=values[::-1])
     plt.show()
 
-
