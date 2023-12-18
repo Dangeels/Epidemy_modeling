@@ -1,3 +1,4 @@
+import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 import math
@@ -69,6 +70,8 @@ if __name__ == '__main__':
     suka = NazvaniePotomPridumau()
     infected, new_cases, recovered, deaths = suka.simulation().values()
 
+    matplotlib.rcParams['axes.formatter.limits'] = (-3,15)
+
     blyat = suka.simulation()
     colours = {'infected':'y','registered_cases':'g','recovered':'b','deaths':'r'}
     for i in blyat.keys():
@@ -78,9 +81,8 @@ if __name__ == '__main__':
         plt.show()
 
     values = [suka.get_folks_per_day(i)['total'] for i in blyat.values()]
-
-    plt.figure(figsize=(16,9))
-    plt.subplot(131)
-    plt.bar(blyat.keys(),values)
+    #maybe?
+    plt.subplots(figsize=(10,10))
+    plt.barh(y=['infected','registered_cases','recovered','deaths'][::-1],width=values[::-1])
     plt.show()
-    
+
