@@ -77,9 +77,11 @@ if __name__ == '__main__':
     for i in blyat.keys():
         plt.figure(figsize=(10,10))
         plt.plot(blyat[i],colours[i])
+        plt.title(f'Maximum day {suka.get_folks_per_day(blyat[i])['max_day']}, count {suka.get_folks_per_day(blyat[i])['max_day_count']}')
         plt.ylabel(f'Amount of {i} per day')
         plt.xlabel('Days')
         plt.show()
+
 
     values = [suka.get_folks_per_day(i)['total'] for i in blyat.values()]
 
